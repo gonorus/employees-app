@@ -1,0 +1,73 @@
+{
+  "departments": [
+    { "id": 1, "name": "Lending" },
+    { "id": 2, "name": "Funding" },
+    { "id": 3, "name": "Operations" },
+    { "id": 4, "name": "Engineering" }
+  ],
+  "basicInfo": [
+    {
+      "fullname": "Budi Santoso",
+      "email": "budi.santoso@example.com",
+      "department": "Engineering",
+      "role": "Engineer",
+      "employeeID": "ENG-001"
+    },
+    {
+      "fullname": "Rina Wijaya",
+      "email": "rina.wijaya@example.com",
+      "department": "Lending",
+      "role": "Ops",
+      "employeeID": "LEN-002"
+    },
+    {
+      "fullname": "Agus Mulyadi",
+      "email": "agus.mulyadi@example.com",
+      "department": "Funding",
+      "role": "Finance",
+      "employeeID": "FUN-003"
+    },
+    {
+      "fullname": "Dewi Kurniawan",
+      "email": "dewi.kurniawan@example.com",
+      "department": "Operations",
+      "role": "Admin",
+      "employeeID": "OPE-004"
+    },
+    {
+      "fullname": "Joko Susilo",
+      "email": "joko.susilo@example.com",
+      "department": "Engineering",
+      "role": "Engineer",
+      "employeeID": "ENG-005"
+    },
+    {
+      "fullname": "Siti Aminah",
+      "email": "siti.aminah@example.com",
+      "department": "Lending",
+      "role": "Admin",
+      "employeeID": "LEN-006"
+    },
+    {
+      "fullname": "Toni Setiawan",
+      "email": "toni.setiawan@example.com",
+      "department": "Funding",
+      "role": "Ops",
+      "employeeID": "FUN-007"
+    },
+    {
+      "fullname": "Maya Sari",
+      "email": "maya.sari@example.com",
+      "department": "Operations",
+      "role": "Finance",
+      "employeeID": "OPE-008"
+    },
+    {
+      "fullname": "Eko Prasetyo",
+      "email": "eko.prasetyo@example.com",
+      "department": "Engineering",
+      "role": "Engineer",
+      "employeeID": "ENG-009"
+    }
+  ]
+}
