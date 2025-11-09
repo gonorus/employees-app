@@ -1,0 +1,13 @@
+@use '@styles/_variables' as *;
+
+.table-header {
+  th {
+    border-bottom: 1px dashed $color-secondary;
+    &:not(:first-child) {
+      border-left: 1px dashed $color-secondary;
+    }
+    &:not(:last-child) {
+      border-right: 1px dashed $color-secondary;
+    }
+  }
+}
