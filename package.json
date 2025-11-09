@@ -8,12 +8,14 @@
     "npm": ">=10.2.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"npm run server:4001\" \"npm run server:4002\" \"vite\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "server:4001": "json-server --watch src/__mock__/db-step1.json --port 4001",
+    "server:4002": "json-server --watch src/__mock__/db-step2.json --port 4002"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -30,12 +32,14 @@
     "@vitejs/plugin-react": "^5.0.4",
     "@vitest/coverage-v8": "^4.0.8",
     "babel-plugin-react-compiler": "^19.1.0-rc.3",
+    "concurrently": "^9.2.1",
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^16.4.0",
     "jsdom": "^27.1.0",
+    "json-server": "^1.0.0-beta.3",
     "sass": "^1.93.3",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",

@@ -1,0 +1,80 @@
+{
+  "locations": [
+    { "id": 1, "name": "Jakarta" },
+    { "id": 2, "name": "Depok" },
+    { "id": 3, "name": "Surabaya" },
+    { "id": 4, "name": "Semarang" }
+  ],
+  "details": [
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Full-time",
+      "location": "Jakarta",
+      "notes": "Spesialisasi di backend development.",
+      "employeeID": "ENG-001"
+    },
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Full-time",
+      "location": "Semarang",
+      "notes": "Fokus pada proses persetujuan pinjaman.",
+      "employeeID": "LEN-002"
+    },
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Contract",
+      "location": "Surabaya",
+      "notes": "Membantu laporan keuangan kuartalan.",
+      "employeeID": "FUN-003"
+    },
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Full-time",
+      "location": "Jakarta",
+      "notes": "Mengelola administrasi kantor pusat.",
+      "employeeID": "OPE-004"
+    },
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Part-time",
+      "location": "Semarang",
+      "notes": "Mahasiswa magang di bagian UI/UX.",
+      "employeeID": "ENG-005"
+    },
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Full-time",
+      "location": "Surabaya",
+      "notes": "Bertanggung jawab atas data nasabah.",
+      "employeeID": "LEN-006"
+    },
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Full-time",
+      "location": "Jakarta",
+      "notes": "Koordinator tim operasional pendanaan.",
+      "employeeID": "FUN-007"
+    },
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Intern",
+      "location": "Semarang",
+      "notes": "Magang di departemen Business Process.",
+      "employeeID": "OPE-008"
+    },
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Contract",
+      "location": "Surabaya",
+      "notes": "Kontrak 6 bulan untuk audit pinjaman.",
+      "employeeID": ""
+    },
+    {
+      "photo": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjggMTguNTc1Yy01LjQgMC0xMC41LS43MjUtMTEuOC02LjA1IDIuMTc1LTIuODc1IDUuNi00LjIgMTAtNC4yUzE5LjYyNSAxMi43IDIzLjQgMTQuMjVjLTQuMiA0LjI3NS05LjkgMi4xNzUtMTEuNiAyLjEzNy01LjktMi4xMDgtMTAtNy42MDgtMTAuNy04LjM3NUwxMiAxLjVjLS42IDAgMTAtLjk3NSAxMi4xNS0xLjIgMi44MjUgMy4xMjUgNi4yIDcuMjUzIDcuOCA5Ljk3NSAzLjIgNS45NzUtLjI1IDkuOTc1LTguOSAxMC4wMjUtMi4xMjUuMDEyLTQuMi42NzUtNi41LjY3NVoiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjcuNSIgcj0iMy41Ii8+PC9zdmc+",
+      "employmentType": "Full-time",
+      "location": "Jakarta",
+      "notes": "Lead developer untuk proyek aplikasi mobile.",
+      "employeeID": "ENG-009"
+    }
+  ]
+}
