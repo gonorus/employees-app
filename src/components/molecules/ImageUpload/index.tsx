@@ -3,14 +3,15 @@ import './index.scss';
 import { type HtmlHTMLAttributes, useRef, useState } from 'react';
 
 interface ImageUploadProps {
+  value: string | null;
   onImageSelect: (base64: string | null) => void;
 }
 
 const MAX_FILE_SIZE = 500 * 1024;
 
-const ImageUpload: React.FC<ImageUploadProps & HtmlHTMLAttributes<HTMLInputElement>> =
-({ onImageSelect, ...props }) => {
-  const [imageBase64, setImageBase64] = useState<string | null>(null);
+const ImageUpload: React.FC<HtmlHTMLAttributes<HTMLInputElement> & ImageUploadProps> =
+({ value, onImageSelect, ...props }) => {
+  const [imageBase64, setImageBase64] = useState<string | null>(value);
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
