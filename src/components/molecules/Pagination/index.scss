@@ -1,0 +1,42 @@
+@use '@styles/_variables' as *;
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: $spacing-sm;
+  gap: $spacing-md;
+  margin-top: $spacing-xxs;
+
+  .pagination {
+    &__select-label {
+      margin-right: $spacing-xs;
+    }
+
+    &__select {
+      padding: $spacing-xxs;
+    }
+
+    &__page-info {
+      font-style: italic;
+    }
+
+    &__navigation {
+      display: flex;
+      gap: $spacing-xs;
+    }
+
+    &__button {
+      padding: $spacing-xxs;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: $border-radius-small;
+      background-color: white;
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+  }
+}
