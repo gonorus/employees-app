@@ -21,6 +21,9 @@
         "src/components/molecules/*"
       ],
       "@organisms/*": ["src/components/organisms/*"],
+      "@pages/*": [
+        "src/components/pages/*"
+      ],
     },
 
     /* Bundler mode */
