@@ -3,9 +3,18 @@ import './EmployeePage.scss';
 import Button from '@atoms/Button';
 import Pagination, { type PaginationState } from '@molecules/Pagination';
 import EmployeeTable from '@organisms/EmployeesTable';
-import { useState } from 'react';
+import Wizard, { type RoleType } from '@organisms/Wizard';
+import { useMemo, useState } from 'react';
 
 const EmployeesPage: React.FC = () => {
+  const role = useMemo(() => {
+    const params = new URLSearchParams(window.location.search);
+    const roleParam = params.get('role') as RoleType;
+    if (roleParam === 'admin' || roleParam === 'ops') return roleParam;
+    return null;
+  }, []);
+
+  const [isWizardOpen, setIsWizardOpen] = useState(false);
   const [paginationState, setPaginationState] = useState<PaginationState>({
     count: 100,
     page: 0,
@@ -24,7 +33,12 @@ const EmployeesPage: React.FC = () => {
     <div className='employee-page'>
       <div className='employee-page--header'>
         <h1>Employee Page</h1>
-        <Button variant='primary'>Add New Employee</Button>
+        <Button
+          variant='primary'
+          onClick={() => setIsWizardOpen(true)}
+          disabled={!role}>
+          Add New Employee
+        </Button>
       </div>
       <EmployeeTable data={[]} />
       <Pagination
@@ -34,6 +48,7 @@ const EmployeesPage: React.FC = () => {
         onPageChange={OnPageChangeHandler}
         onRowsPerPageChange={OnRowsPerPageChangeHandler}
       />
+      <Wizard isOpen={isWizardOpen} onClose={() => setIsWizardOpen(false)} role={role} />
     </div>
   );
 };
