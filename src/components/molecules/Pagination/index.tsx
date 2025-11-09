@@ -1,7 +1,7 @@
 import './index.scss';
 
 import Button from '@atoms/Button';
-import React, { type ChangeEvent,useMemo } from 'react';
+import { type ChangeEvent,useMemo } from 'react';
 
 export interface PaginationState {
   /**

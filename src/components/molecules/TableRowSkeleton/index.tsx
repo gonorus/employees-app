@@ -1,5 +1,4 @@
 import Skeleton from '@atoms/Skeleton';
-import React from 'react';
 
 interface TableRowSkeletonProps {
   /**
