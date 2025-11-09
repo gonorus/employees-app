@@ -1,7 +1,8 @@
 import './index.scss';
 
 import Button from '@atoms/Button';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import useUserMonitorActivity from '@customHooks/useUserMonitorActivity';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import Step1 from './Step1';
 import Step2 from './Step2';
@@ -18,6 +19,7 @@ interface WizardProps {
 const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const formRef = useRef<HTMLDivElement>(null);
+  const userMonitorActivity = useUserMonitorActivity(2000);
 
   const useStore = useMemo(() => {
     return createWizardStore(role);
@@ -36,11 +38,7 @@ const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
     }
   };
 
-  useEffect(() => {
-    ConstructWizardStep(role);
-  }, [role]);
-
-  const SavingIntoDraft = () => {
+  const SavingIntoDraft = useCallback(() => {
     if (formRef.current) {
       const formElements = formRef.current.querySelectorAll('input, select, textarea');
       const formData: Record<string, string> = {};
@@ -50,7 +48,17 @@ const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
       });
       setWizardState(formData);
     }
-  };
+  }, [setWizardState]);
+
+  useEffect(() => {
+    ConstructWizardStep(role);
+  }, [role]);
+
+  useEffect(() => {
+    if(!userMonitorActivity) {
+      SavingIntoDraft();
+    }
+  }, [userMonitorActivity, SavingIntoDraft]);
 
   const handleSubmit = () => {
     SavingIntoDraft();
