@@ -18,6 +18,11 @@
 .button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.button:disabled {
+  background-color: gray;
+  cursor: initial;
+  border-color: transparent;
+}
 
 .button--primary {
   background-color: $color-primary;
