@@ -1,0 +1,19 @@
+@use "sass:map";
+@use './variables';
+
+@mixin respond-to($breakpoint) {
+  @if map.has-key($bp-map, $breakpoint) {
+    @media (min-width: map.get($bp-map, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' tidak ditemukan.";
+  }
+}
+
+$bp-map: (
+  mobile: variables.$bp-mobile,
+  tablet: variables.$bp-tablet,
+  desktop: variables.$bp-desktop,
+  desktop-lg: variables.$bp-desktop-large
+);
