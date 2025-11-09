@@ -11,6 +11,9 @@
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["src/assets/*"],
+      "@styles/*": [
+        "src/styles/*"
+      ],
       "@organisms/*": ["src/components/organisms/*"],
     },
 
