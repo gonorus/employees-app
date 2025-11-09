@@ -9,12 +9,16 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
+  className,
   ...props
 }) => {
-  const className = useMemo(() => ['button', `button--${variant}`].join(' '), [variant]);
+  const generatedClassName = useMemo(
+    () => ['button', `button--${variant}`, className].join(' '),
+    [variant, className],
+  );
 
   return (
-    <button className={className} {...props}>
+    <button className={generatedClassName} {...props}>
       {children}
     </button>
   );
