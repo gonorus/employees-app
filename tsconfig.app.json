@@ -17,6 +17,9 @@
       "@atoms/*": [
         "src/components/atoms/*"
       ],
+      "@customHooks/*": [
+        "src/components/hooks/*"
+      ],
       "@molecules/*": [
         "src/components/molecules/*"
       ],

@@ -16,6 +16,7 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets'),
       '@styles': path.resolve(__dirname, './src/styles'),
       '@atoms': path.resolve(__dirname, './src/components/atoms'),
+      '@customHooks': path.resolve(__dirname, './src/components/hooks'),
       '@molecules': path.resolve(__dirname, './src/components/molecules'),
       '@organisms': path.resolve(__dirname, './src/components/organisms'),
       '@pages': path.resolve(__dirname, './src/components/pages'),

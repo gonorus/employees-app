@@ -1,0 +1,42 @@
+@use '@styles/_variables' as *;
+
+.auto-complete-input {
+  position: relative;
+  width: 300px;
+
+  input {
+    width: 100%;
+    padding: $spacing-xs;
+    border: 1px solid #ccc;
+    border-radius: $border-radius-small;
+    font-size: $font-size-base;
+  }
+
+  &__options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 $spacing-xxs $spacing-xxs;
+    background-color: white;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &__item {
+      padding: $spacing-xs;
+      cursor: pointer;
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+
+    &__loading {
+      padding: $spacing-xs;
+      color: $color-secondary;
+    }
+  }
+}
