@@ -1,6 +1,7 @@
 import './index.scss';
 
 import Button from '@atoms/Button';
+import LoadingSpinner from '@atoms/LoadingSpinner';
 import useUserMonitorActivity from '@customHooks/useUserMonitorActivity';
 import { type BasicInfo,BasicInfoRepository } from '@infrastructures/BasicInfoRepository';
 import { type Details,DetailsRepository } from '@infrastructures/DetailsRepository';
@@ -23,17 +24,20 @@ const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const userMonitorActivity = useUserMonitorActivity(2000);
   const NewEmployeeBasicInfo = useMutation<string, Error, BasicInfo>({
     mutationFn: (payload) => BasicInfoRepository.addEmployeeBasicInfo(payload),
-    onSuccess: () => {
+    onSuccess: async () => {
+      await sleep(3000);
       console.log('✅ basicInfo saved!');
     },
   });
   const NewEmployeeDetails = useMutation<string, Error, Details>({
     mutationFn: (payload) => DetailsRepository.addEmployeeDetails(payload),
-    onSuccess: () => {
+    onSuccess: async () => {
+      await sleep(3000);
       console.log('✅ details saved!');
     },
   });
@@ -69,9 +73,9 @@ const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
   }, [setWizardState]);
 
   const SubmittingData = useCallback(async () => {
+    setIsSubmitting(true);
     try {
       console.log('⏳ Submitting basicInfo…');
-      await sleep(3000);
       await NewEmployeeBasicInfo.mutateAsync({
         department: wizardState.department ?? '',
         email: wizardState.email ?? '',
@@ -79,8 +83,6 @@ const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
         fullName: wizardState.fullName ?? '',
         role: wizardState.role ?? '',
       });
-      await sleep(3000);
-
       console.log('⏳ Submitting details…');
       await NewEmployeeDetails.mutateAsync({
         employmentType: wizardState.employmentType ?? '',
@@ -93,6 +95,7 @@ const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
     } catch (error) {
       console.error('An error occurred during submission:', error);
     } finally {
+      setIsSubmitting(false);
       ConstructWizardStep(role);
       resetWizardState();
       onClose();
@@ -145,6 +148,7 @@ const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
   return (
     <div className='wizard-backdrop'>
       <div className='wizard-dialog'>
+        {isSubmitting && <LoadingSpinner />}
         <div className='wizard-header'>
           <h2>Add New Employee</h2>
           <button onClick={OnClosingHandler} className='close-button'>
