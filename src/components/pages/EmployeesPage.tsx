@@ -48,7 +48,7 @@ const EmployeesPage: React.FC = () => {
         onPageChange={OnPageChangeHandler}
         onRowsPerPageChange={OnRowsPerPageChangeHandler}
       />
-      <Wizard isOpen={isWizardOpen} onClose={() => setIsWizardOpen(false)} role={role} />
+      <Wizard isOpen={isWizardOpen} onClose={() => setIsWizardOpen(false)} role={role ?? 'unknown'} />
     </div>
   );
 };

@@ -8,7 +8,7 @@ import Step1 from './Step1';
 import Step2 from './Step2';
 import { createWizardStore } from './WizardStore';
 
-export type RoleType = 'admin' | 'ops';
+export type RoleType = 'admin' | 'ops' | 'unknown';
 
 interface WizardProps {
   isOpen: boolean;

@@ -1,7 +1,10 @@
+import type { BasicInfo } from '@infrastructures/BasicInfoRepository';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-const initialState = {
+import type { RoleType } from '.';
+
+const initialState: Omit<WizardState, 'setData' | 'reset'> = {
   fullName: undefined,
   email: undefined,
   department: undefined,
@@ -13,12 +16,7 @@ const initialState = {
   notes: undefined,
 };
 
-export interface WizardState {
-  fullName?: string;
-  email?: string;
-  department?: string;
-  role?: string;
-  employeeID?: string;
+export interface WizardState extends Partial<BasicInfo> {
   photo?: string;
   employmentType?: string;
   officeLocation?: string;
@@ -27,7 +25,7 @@ export interface WizardState {
   reset: () => void;
 }
 
-export const createWizardStore = (role: 'admin' | 'ops') => {
+export const createWizardStore = (role: RoleType) => {
   const store = create<WizardState>()(
     persist(
       (set) => ({

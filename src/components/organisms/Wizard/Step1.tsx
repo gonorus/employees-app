@@ -1,3 +1,7 @@
+import { type BasicInfo,BasicInfoRepository } from '@infrastructures/BasicInfoRepository';
+import { useQuery } from '@tanstack/react-query';
+import { type ChangeEvent,useMemo, useState } from 'react';
+
 import { type WizardState } from './WizardStore';
 
 interface Step1Props {
@@ -5,7 +9,23 @@ interface Step1Props {
 }
 
 const Step1: React.FC<Step1Props> = ({ useStore }) => {
-  const { fullName, email, department, role, employeeID } = useStore();
+  const { fullName, email, department, role } = useStore();
+  const [formRole, setFormRole] = useState(role ?? 'Ops');
+
+  const { data } = useQuery<BasicInfo[], Error>({
+    queryKey: [formRole],
+    queryFn: () => BasicInfoRepository.getBasicInfoByRole(formRole),
+  });
+
+  const generatedEmployeeID = useMemo(() => {
+    if(data) {
+      return `${formRole.substring(0,3).toUpperCase()}-${(data.length + 1).toString().padStart(3, '0')}`;
+    }
+  }, [formRole, data]);
+
+  const OnRoleChangeHandler = (evt: ChangeEvent<HTMLSelectElement>) => {
+    setFormRole(evt.target.value);
+  };
 
   return (
     <div>
@@ -33,7 +53,7 @@ const Step1: React.FC<Step1Props> = ({ useStore }) => {
           <label htmlFor='role'>
             Role
           </label>
-          <select id="role" name="role" defaultValue={role}>
+          <select id="role" name="role" defaultValue={formRole} onChange={OnRoleChangeHandler}>
             <option value={'Ops'}>Ops</option>
             <option value={'Admin'}>Admin</option>
             <option value={'Engineer'}>Engineer</option>
@@ -44,7 +64,7 @@ const Step1: React.FC<Step1Props> = ({ useStore }) => {
           <label htmlFor='employeeID'>
             Employee ID
           </label>
-          <input type='text' id='employeeID' name='employeeID' defaultValue={employeeID} disabled />
+          <input type='text' id='employeeID' name='employeeID' value={generatedEmployeeID} disabled />
         </div>
       </form>
     </div>

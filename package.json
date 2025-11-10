@@ -18,6 +18,8 @@
     "server:4002": "json-server --watch src/__mock__/db-step2.json --port 4002"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.7",
+    "axios": "^1.13.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "zustand": "^5.0.8"
