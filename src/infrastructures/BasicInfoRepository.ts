@@ -19,4 +19,8 @@ export const BasicInfoRepository = {
     } });
     return response.data;
   },
+  async addEmployeeBasicInfo(_: BasicInfo): Promise<string> {
+    // const response = await apiClient.post('/details', payload);
+    return Promise.resolve('✅ basicInfo saved!');
+  },
 };

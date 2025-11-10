@@ -1,4 +1,5 @@
 import type { BasicInfo } from '@infrastructures/BasicInfoRepository';
+import type { Details } from '@infrastructures/DetailsRepository';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
@@ -16,11 +17,7 @@ const initialState: Omit<WizardState, 'setData' | 'reset'> = {
   notes: undefined,
 };
 
-export interface WizardState extends Partial<BasicInfo> {
-  photo?: string;
-  employmentType?: string;
-  officeLocation?: string;
-  notes?: string;
+export interface WizardState extends Partial<BasicInfo>, Partial<Details> {
   setData: (data: Partial<WizardState>) => void;
   reset: () => void;
 }

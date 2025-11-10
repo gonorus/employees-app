@@ -2,6 +2,9 @@ import './index.scss';
 
 import Button from '@atoms/Button';
 import useUserMonitorActivity from '@customHooks/useUserMonitorActivity';
+import { type BasicInfo,BasicInfoRepository } from '@infrastructures/BasicInfoRepository';
+import { type Details,DetailsRepository } from '@infrastructures/DetailsRepository';
+import { useMutation } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import Step1 from './Step1';
@@ -16,10 +19,25 @@ interface WizardProps {
   onClose: () => void;
 }
 
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const formRef = useRef<HTMLDivElement>(null);
   const userMonitorActivity = useUserMonitorActivity(2000);
+  const NewEmployeeBasicInfo = useMutation<string, Error, BasicInfo>({
+    mutationFn: (payload) => BasicInfoRepository.addEmployeeBasicInfo(payload),
+    onSuccess: () => {
+      console.log('✅ basicInfo saved!');
+    },
+  });
+  const NewEmployeeDetails = useMutation<string, Error, Details>({
+    mutationFn: (payload) => DetailsRepository.addEmployeeDetails(payload),
+    onSuccess: () => {
+      console.log('✅ details saved!');
+    },
+  });
+
 
   const useStore = useMemo(() => {
     return createWizardStore(role);
@@ -30,13 +48,13 @@ const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
   const resetWizardState = useStore(state => state.reset);
   const totalSteps = useMemo(() => role === 'admin' ? 2 : 1, [role]);
 
-  const ConstructWizardStep = (role: RoleType) => {
+  const ConstructWizardStep = useCallback((role: RoleType) => {
     if (role === 'ops') {
       setCurrentStep(2);
     } else {
       setCurrentStep(1);
     }
-  };
+  }, []);
 
   const SavingIntoDraft = useCallback(() => {
     if (formRef.current) {
@@ -50,9 +68,48 @@ const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
     }
   }, [setWizardState]);
 
+  const SubmittingData = useCallback(async () => {
+    try {
+      console.log('⏳ Submitting basicInfo…');
+      await sleep(3000);
+      await NewEmployeeBasicInfo.mutateAsync({
+        department: wizardState.department ?? '',
+        email: wizardState.email ?? '',
+        employeeID: wizardState.employeeID ?? '',
+        fullName: wizardState.fullName ?? '',
+        role: wizardState.role ?? '',
+      });
+      await sleep(3000);
+
+      console.log('⏳ Submitting details…');
+      await NewEmployeeDetails.mutateAsync({
+        employmentType: wizardState.employmentType ?? '',
+        notes: wizardState.notes ?? '',
+        officeLocation: wizardState.officeLocation ?? '',
+        photo: wizardState.photo ?? '',
+      });
+
+      console.log('🎉 All data processed successfully!');
+    } catch (error) {
+      console.error('An error occurred during submission:', error);
+    } finally {
+      ConstructWizardStep(role);
+      resetWizardState();
+      onClose();
+    }
+  }, [
+    role,
+    wizardState,
+    NewEmployeeBasicInfo,
+    NewEmployeeDetails,
+    ConstructWizardStep,
+    resetWizardState,
+    onClose,
+  ]);
+
   useEffect(() => {
     ConstructWizardStep(role);
-  }, [role]);
+  }, [role, ConstructWizardStep]);
 
   useEffect(() => {
     if(!userMonitorActivity) {
@@ -60,16 +117,12 @@ const Wizard: React.FC<WizardProps> = ({ isOpen, onClose, role }) => {
     }
   }, [userMonitorActivity, SavingIntoDraft]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     SavingIntoDraft();
     if (currentStep < totalSteps) {
       setCurrentStep(prev => prev + 1);
     } else {
-      console.log('Final Form Data:', wizardState);
-      alert('Employee data submitted!');
-      ConstructWizardStep(role);
-      resetWizardState();
-      onClose();
+      SubmittingData();
     }
   };
 
