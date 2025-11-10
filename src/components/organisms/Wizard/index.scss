@@ -1,0 +1,76 @@
+@use '@styles/_variables' as *;
+@use '@styles/_variablesMixin' as *;
+
+.wizard-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .wizard-dialog {
+    background: $color-background;
+    border-radius: $border-radius-medium;
+    padding: $spacing-sm;
+    max-width: 90%;
+
+    @include respond-to(tablet) {
+      width: 500px;
+    }
+
+    .wizard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid $color-secondary;
+
+      h2 {
+        margin: 0;
+      }
+
+      .close-button {
+        background: transparent;
+        border: none;
+        font-size: $font-size-base;
+        color: $color-text;
+        cursor: pointer;
+      }
+    }
+
+    .wizard-footer {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid $color-secondary;
+      padding-top: $spacing-sm;
+
+      .--hidden {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .form-group {
+    margin-bottom: $spacing-sm;
+
+    label {
+      display: block;
+      margin-bottom: $spacing-xs;
+    }
+
+    select, input, textarea {
+      width: 100%;
+      padding: $spacing-xs;
+      border-radius: $border-radius-medium;
+
+      &:disabled {
+        color: white;
+      }
+    }
+  }
+
+}

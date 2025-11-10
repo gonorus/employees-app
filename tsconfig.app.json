@@ -11,7 +11,25 @@
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["src/assets/*"],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@infrastructures/*": [
+        "src/infrastructures/*"
+      ],
+      "@atoms/*": [
+        "src/components/atoms/*"
+      ],
+      "@customHooks/*": [
+        "src/components/hooks/*"
+      ],
+      "@molecules/*": [
+        "src/components/molecules/*"
+      ],
       "@organisms/*": ["src/components/organisms/*"],
+      "@pages/*": [
+        "src/components/pages/*"
+      ],
     },
 
     /* Bundler mode */
